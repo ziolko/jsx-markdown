@@ -1,6 +1,6 @@
 {
   "name": "jsx-markdown",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Seamlessly embed markdown into JSX",
   "main": "dist/index.js",
   "scripts": {
@@ -12,9 +12,9 @@
     "react",
     "markup"
   ],
-  "homepage": "https://github.com/ziolko/jsx-markup",
+  "homepage": "https://github.com/ziolko/jsx-markdown",
   "bugs": {
-    "url": "https://github.com/ziolko/jsx-markup"
+    "url": "https://github.com/ziolko/jsx-markdown"
   },
   "author": "Mateusz Zieliński <mateusz.mzielinski@gmail.com> (https://github.com/ziolko)",
   "license": "MIT",
