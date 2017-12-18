@@ -44,7 +44,7 @@ Markdown`
   This is markdown. ${<div> This is custom HTML</div>}
 `
 ```
-2. Indentation is removed automatically using the [strip-indent](https://github.com/sindresorhus/strip-indent) package. It means the following two are equivalent:
+2. Indentation is removed automatically. It means the following two are equivalent:
 ```jsx
 Markdown`
 First line

@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _stripIndent = require('strip-indent');
-
-var _stripIndent2 = _interopRequireDefault(_stripIndent);
-
 var _remark = require('remark');
 
 var _remark2 = _interopRequireDefault(_remark);
@@ -22,9 +18,26 @@ var _url2 = _interopRequireDefault(_url);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var sanitiseHref = function sanitiseHref(href) {
   var parsed = _url2.default.parse(href);
   return parsed.protocol.indexOf('javascript') === -1 ? parsed.href : null;
+};
+
+var stripIndent = function stripIndent(str) {
+  var match = str.match(/^[ \t]*(?=\S)/gm);
+
+  if (!match) {
+    return str;
+  }
+
+  var indent = Math.min.apply(Math, _toConsumableArray(match.map(function (x) {
+    return x.length;
+  })));
+  var re = new RegExp('^[ \\t]{' + indent + '}', 'gm');
+
+  return indent > 0 ? str.replace(re, '') : str;
 };
 
 exports.default = function (texts) {
@@ -37,7 +50,7 @@ exports.default = function (texts) {
     if (i < texts.length) markup += texts[i].replace(/'''/g, '```').replace(/''/g, '`');
     if (i < objects.length) markup += '<react-el-' + i + '/>';
   }
-  markup = (0, _stripIndent2.default)(markup);
+  markup = stripIndent(markup);
 
   function react() {
     this.Compiler = function (tree) {
